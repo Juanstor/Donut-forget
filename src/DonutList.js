@@ -1,11 +1,11 @@
 import './DonutList.css'
 
-function DonutList(props) {
+function DonutList({ children }) {
     return (
-        <ul>
-            {props.children}
-        </ul>
+      <ul className="DonutList">
+        {children}
+      </ul>
     );
-}
+  }
 
 export { DonutList };
