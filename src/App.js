@@ -1,25 +1,30 @@
-import logo from './platzi.webp';
+import React from "react";
+import { DonutCounter } from './DonutCounter';
+import { DonutSearch } from './DonutSearch';
+import { DonutList } from './DonutList';
+import { DonutItem } from './DonutItem';
+import { CreateDonutButton } from './CreateDonutButton';
 import './App.css';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edita el archivo <code>src/App.js</code> y guarda para recargar.
-        </p>
-        <a
-          className="App-link"
-          href="https://platzi.com/reactjs"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+
+      <DonutCounter completed={12} total={20}/>
+      <DonutSearch />
+
+      <DonutList>
+        <DonutItem />
+        <DonutItem />
+        <DonutItem />
+      </DonutList>
+
+      <CreateDonutButton />
+
+    </React.Fragment>
   );
 }
+
 
 export default App;
