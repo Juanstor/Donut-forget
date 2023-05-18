@@ -1,8 +1,10 @@
-function DonutItem() {
+function DonutItem({text, completed}) {
     return (
-        <h2>
-            Soy una Donut
-        </h2>
+        <li>
+            <span>✔</span>
+            <p>{text}</p>
+            <span>❌</span>
+        </li>
     );
 }
 
