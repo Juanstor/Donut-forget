@@ -1,3 +1,5 @@
+import './DonutCounter.css'
+
 function DonutCounter({ total, completed}) {
     
     return (

@@ -1,3 +1,5 @@
+import './DonutList.css'
+
 function DonutList(props) {
     return (
         <ul>

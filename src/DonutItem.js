@@ -1,9 +1,11 @@
+import './DonutItem.css';
+
 function DonutItem({text, completed}) {
     return (
         <li>
             <span>✔</span>
             <p>{text}</p>
-            <span>❌</span>
+            <span className="Icon Icon-delete">❌</span>
         </li>
     );
 }
