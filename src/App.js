@@ -9,11 +9,10 @@ import './App.css';
 const defaultDonuts = [
   { text:'Cortar Cebolla', completed: true },
   { text:'Comprar pasajes Canadá', completed: false },
-  { text:'Planear viajes Neiva', completed: false },
+  { text:'Canción', completed: false },
   { text:'YOLO', completed: true },
   { text:'Usar estados derivados, porque aja, hay que hacer salto de linea', completed: true },
 ]
-
 
 function App() {
 
@@ -29,7 +28,23 @@ function App() {
     ).length;
   const totalDonuts = donuts.length;
 
-  // console.log('Usuario escribió: ' + searchValue);
+  //Obitene el string del search y filtra (Estado derivado)
+  const searchedDonuts = donuts.filter(
+    (donut) => {
+      
+      // función texto sin tildes
+      const noTildes = (text) => {
+        return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      };
+
+      // Normalizando texto sin tildes y a Lower Case
+      const donutTextLC = noTildes(donut.text.toLowerCase());
+      const searchTextLC = noTildes(searchValue.toLowerCase());
+
+      //renderizar con filtro
+      return donutTextLC.includes(searchTextLC);
+    }
+  );
 
   return (
     <>
@@ -45,7 +60,7 @@ function App() {
       />
 
       <DonutList>
-        {defaultDonuts.map(donut => (
+        {searchedDonuts.map(donut => (
           <DonutItem 
           key={donut.text}
           text={donut.text}
