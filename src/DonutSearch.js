@@ -1,10 +1,10 @@
 import React from 'react';
 import './DonutSearch.css';
 
-function DonutSearch() {
-    const [searchValue, setSearchValue] = React.useState('');
-
-    console.log('Usuario escribió: ' + searchValue);
+function DonutSearch({
+    searchValue,
+    setSearchValue
+}) {
 
     return (
         <input 
