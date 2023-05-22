@@ -1,5 +1,5 @@
-import { CheckIcon } from './CheckIcon'
-import { DeleteIcon } from './DeleteIcon'
+import { CheckIcon } from '../DonutIcon/CheckIcon'
+import { DeleteIcon } from '../DonutIcon/DeleteIcon'
 import './DonutItem.css';
 
 function DonutItem(props) {
