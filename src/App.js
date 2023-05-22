@@ -6,18 +6,44 @@ import { DonutItem } from './DonutItem';
 import { CreateDonutButton } from './CreateDonutButton';
 import './App.css';
 
-const defaultDonuts = [
-  { text:'Cortar Cebolla', completed: true },
-  { text:'Comprar pasajes Canadá', completed: false },
-  { text:'Canción', completed: false },
-  { text:'YOLO', completed: true },
-  { text:'Usar estados derivados, porque aja, hay que hacer salto de linea', completed: true },
-]
+
+// const defaultDonuts = [
+//   { text:'Cortar Cebolla', completed: true },
+//   { text:'Comprar pasajes Canadá', completed: false },
+//   { text:'Canción', completed: false },
+//   { text:'YOLO', completed: true },
+//   { text:'Usar estados derivados, porque aja, hay que hacer salto de linea', completed: true },
+// ]
+
+// localStorage.setItem('DONUTS_V1', JSON.stringify(defaultDonuts));
+
+
+function useLocalStorage(itemName, intialValue) {
+  const localStorageItem = localStorage.getItem(itemName);
+  
+  let parsedItem;
+
+  if (!localStorageItem) {
+    localStorage.setItem(itemName, JSON.stringify([intialValue]));
+    parsedItem = [intialValue];
+  } else {
+    parsedItem = JSON.parse(localStorageItem);
+  }
+  
+  const [item, setItem] = React.useState(parsedItem);
+
+  // SAVING donut
+  const saveItem = (newItem) => {
+    localStorage.setItem(itemName, JSON.stringify(newItem));
+    setItem(newItem);
+  };
+  
+  return [item, saveItem];
+}
 
 function App() {
-
   //Creando Donut array
-  const [donuts, setDonuts] = React.useState(defaultDonuts);
+  const [donuts, saveDonuts] = useLocalStorage('DONUTS_V1', []);
 
   //Obteniendo string del Search
   const [searchValue, setSearchValue] = React.useState('');
@@ -46,22 +72,24 @@ function App() {
     }
   );
 
+  // CHECKING donut
   const completeDonut = (text) => {
     const newDonuts = [...donuts];
     const donutIndex = newDonuts.findIndex(
       (donut) => donut.text == text
     );
     newDonuts[donutIndex].completed = !newDonuts[donutIndex].completed;
-    setDonuts(newDonuts);
+    saveDonuts(newDonuts);
   }
 
+  // DELETING donut
   const deleteDonut = (text) => {
     const newDonuts = [...donuts];
     const donutIndex = newDonuts.findIndex(
       (donut) => donut.text == text
     );
     newDonuts.splice(donutIndex, 1);
-    setDonuts(newDonuts);
+    saveDonuts(newDonuts);
   }
 
 
