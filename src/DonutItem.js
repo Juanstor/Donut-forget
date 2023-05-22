@@ -1,21 +1,22 @@
+import { CheckIcon } from './CheckIcon'
+import { DeleteIcon } from './DeleteIcon'
 import './DonutItem.css';
 
-function DonutItem({text, completed}) {
+function DonutItem(props) {
     return (
         <li className="DonutItem">
+            <CheckIcon
+                completed={props.completed}
+                onComplete={props.onCompleted}
+            />
 
-            <span className={`Icon Icon-check ${completed && "Icon-check--active"}`}>
-                ✔
-            </span>
-
-            <p className={`DonutItem-p ${completed &&"DonutItem-p--complete"}`}>
-                {text}
+            <p className={`DonutItem-p ${props.completed &&"DonutItem-p--complete"}`}>
+                {props.text}
             </p>
 
-            <span className="Icon Icon-delete">
-                ❌
-            </span>
-
+            <DeleteIcon 
+                onDelete={props.onDelete}
+            />
         </li>
     );
 }

@@ -46,6 +46,25 @@ function App() {
     }
   );
 
+  const completeDonut = (text) => {
+    const newDonuts = [...donuts];
+    const donutIndex = newDonuts.findIndex(
+      (donut) => donut.text == text
+    );
+    newDonuts[donutIndex].completed = !newDonuts[donutIndex].completed;
+    setDonuts(newDonuts);
+  }
+
+  const deleteDonut = (text) => {
+    const newDonuts = [...donuts];
+    const donutIndex = newDonuts.findIndex(
+      (donut) => donut.text == text
+    );
+    newDonuts.splice(donutIndex, 1);
+    setDonuts(newDonuts);
+  }
+
+
   return (
     <>
 
@@ -65,6 +84,8 @@ function App() {
           key={donut.text}
           text={donut.text}
           completed={donut.completed}
+          onCompleted={() => completeDonut(donut.text)}
+          onDelete={() => deleteDonut(donut.text)}
           />
         ))}
       </DonutList>
