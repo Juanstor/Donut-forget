@@ -24,3 +24,6 @@ yarn-error.log*
 
 #mine
 ideas-DountForget.txt
+/vscode
+settings.json
+

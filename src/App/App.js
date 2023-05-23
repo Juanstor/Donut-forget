@@ -2,6 +2,8 @@ import React from "react";
 import { AppUI } from "./AppUI";
 import { useLocalStorage } from './useLocalStorage';
 
+// localStorage.removeItem('DONUTS_V1');
+
 // const defaultDonuts = [
 //   { text:'Cortar Cebolla', completed: true },
 //   { text:'Comprar pasajes Canadá', completed: false },
@@ -15,7 +17,12 @@ import { useLocalStorage } from './useLocalStorage';
 
 function App() {
   //Creando Donut array
-  const [donuts, saveDonuts] = useLocalStorage('DONUTS_V1', []);
+  const {
+    item: donuts,
+    saveItem: saveDonuts,
+    loading,
+    error,
+  } = useLocalStorage('DONUTS_V1', []);
 
   //Obteniendo string del Search
   const [searchValue, setSearchValue] = React.useState('');
@@ -67,6 +74,8 @@ function App() {
 
   return (
     <AppUI 
+    loading={loading}
+    error={error}
     completedDonuts={completedDonuts}
     totalDonuts={totalDonuts}
     searchValue={searchValue}
