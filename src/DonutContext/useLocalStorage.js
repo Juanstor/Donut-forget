@@ -45,3 +45,17 @@ const saveItem = (newItem) => {
 
 
 export { useLocalStorage };
+
+
+
+// localStorage.removeItem('DONUTS_V1');
+
+// const defaultDonuts = [
+//   { text:'Cortar Cebolla', completed: true },
+//   { text:'Comprar pasajes Canadá', completed: false },
+//   { text:'Canción', completed: false },
+//   { text:'YOLO', completed: true },
+//   { text:'Usar estados derivados, porque aja, hay que hacer salto de linea', completed: true },
+// ]
+
+// localStorage.setItem('DONUTS_V1', JSON.stringify(defaultDonuts));

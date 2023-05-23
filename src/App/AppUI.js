@@ -4,36 +4,26 @@ import { DonutSearch } from '../DonutSearch/DonutSearch';
 import { DonutList } from '../DonutList/DonutList';
 import { DonutItem } from '../DonutItem/DonutItem';
 import { CreateDonutButton } from '../CreateDonutButton/CreateDonutButton';
+import { DonutContext } from '../DonutContext/DonutContext';
 
-function AppUI ({
-    loading,
-    error,
-    completedDonuts,
-    totalDonuts,
-    searchValue,
-    setSearchValue,
-    searchedDonuts,
-    completeDonut,
-    deleteDonut,
+function AppUI () {
+    const {
+        loading,
+        error,
+        searchedDonuts,
+        completeDonut,
+        deleteDonut,
+    }= React.useContext(DonutContext);
 
-}) {
     return (
         <>
-            <DonutCounter
-                completed={completedDonuts}
-                total={totalDonuts}
-            />
-
-            <DonutSearch 
-                searchValue={searchValue}
-                setSearchValue={setSearchValue}
-            />
+            <DonutCounter />
+            <DonutSearch />
 
             <DonutList>
                 {loading && <p>Estamos cargando...</p>}
                 {error && <p>Hubo un ERROR!</p>}
                 {(!loading && searchedDonuts.lenght === 0) && <p>Hubo un ERROR!</p>}
-
 
                 {searchedDonuts.map(donut => (
                     <DonutItem 

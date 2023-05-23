@@ -1,9 +1,16 @@
+import React from 'react';
+import { DonutContext } from '../DonutContext/DonutContext';
 import './DonutCounter.css'
 
-function DonutCounter({ total, completed }) {
+function DonutCounter() {
+    const {
+      completedDonuts,
+      totalDonuts,
+    } = React.useContext(DonutContext);
+
     return (
       <h1 className="DonutCounter">
-        Has completado <span>{completed}</span> de <span>{total}</span> Donuts
+        Has completado <span>{completedDonuts}</span> de <span>{totalDonuts}</span> Donuts
       </h1>
     );
   }

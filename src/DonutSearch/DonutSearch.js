@@ -1,11 +1,13 @@
 import React from 'react';
 import './DonutSearch.css';
+import { DonutContext } from '../DonutContext/DonutContext';
 
-function DonutSearch({
-    searchValue,
-    setSearchValue
-}) {
-
+function DonutSearch() {
+    const {
+        searchValue,
+        setSearchValue,
+    } = React.useContext(DonutContext);
+    
     return (
         <input 
             placeholder="Go to Canada" 
