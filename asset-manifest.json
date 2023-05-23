@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Donut-forget/static/css/main.7fcf1fb4.css",
+    "main.js": "/Donut-forget/static/js/main.3e4630dd.js",
+    "index.html": "/Donut-forget/index.html",
+    "static/media/delete.svg": "/Donut-forget/static/media/delete.9f5dc410a093662afe81e44fac54f55a.svg",
+    "static/media/check.svg": "/Donut-forget/static/media/check.ecbc296e9a9261a11a1aacc4629e4004.svg",
+    "main.7fcf1fb4.css.map": "/Donut-forget/static/css/main.7fcf1fb4.css.map",
+    "main.3e4630dd.js.map": "/Donut-forget/static/js/main.3e4630dd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7fcf1fb4.css",
+    "static/js/main.3e4630dd.js"
+  ]
+}
