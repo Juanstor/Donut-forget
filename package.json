@@ -31,8 +31,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "htts://platzi.github.io/curso-react-intro",
-  "devDependencies": {
-    "gh-pages": "^4.0.0"
-  }
+  "homepage": "https://juanstor.github.io/Donut-forget/"
 }
