@@ -1,11 +1,13 @@
 import './CreateDonutButton.css';
 
-function CreateDonutButton() {
+function CreateDonutButton({ setOpenModal }) {
     return (
         <button 
-        className="CreateDonutButton"
-        onClick={
-            () => console.log('Le diste click al bot[on agregar')
+            className="CreateDonutButton"
+            onClick={
+                () => {
+                    setOpenModal(state => !state);
+                }
         }
         >
             +

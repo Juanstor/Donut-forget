@@ -15,6 +15,9 @@ function DonutProvider({ children }) {
   
     //Obteniendo string del Search
     const [searchValue, setSearchValue] = React.useState('');
+
+    //Creando Modal
+    const [openModal, setOpenModal] = React.useState(false);
   
     //Contando Donuts
     const completedDonuts = donuts.filter(
@@ -40,6 +43,16 @@ function DonutProvider({ children }) {
       }
     );
   
+    //ADD Donut
+    const addDonut = (text) => {
+      const newDonuts = [...donuts];
+      newDonuts.push({
+        text,
+        completed: false,
+      })
+      saveDonuts(newDonuts);
+    }
+
     // CHECKING donut
     const completeDonut = (text) => {
       const newDonuts = [...donuts];
@@ -69,8 +82,11 @@ function DonutProvider({ children }) {
     searchValue,
     setSearchValue,
     searchedDonuts,
+    addDonut,
     completeDonut,
     deleteDonut,
+    openModal,
+    setOpenModal,
   }}>
     {children}
   </DonutContext.Provider>

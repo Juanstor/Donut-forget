@@ -5,6 +5,8 @@ import { DonutList } from '../DonutList/DonutList';
 import { DonutItem } from '../DonutItem/DonutItem';
 import { CreateDonutButton } from '../CreateDonutButton/CreateDonutButton';
 import { DonutContext } from '../DonutContext/DonutContext';
+import { Modal } from '../Modal/Modal';
+import { DonutAdd } from '../DonutAdd/DonutAdd';
 
 function AppUI () {
     const {
@@ -13,6 +15,8 @@ function AppUI () {
         searchedDonuts,
         completeDonut,
         deleteDonut,
+        openModal,
+        setOpenModal,
     }= React.useContext(DonutContext);
 
     return (
@@ -36,7 +40,15 @@ function AppUI () {
                 ))}
             </DonutList>
 
-            <CreateDonutButton />
+            <CreateDonutButton 
+                setOpenModal={setOpenModal}
+            />
+
+            {openModal && (
+                <Modal>
+                    <DonutAdd />
+                </Modal>
+            )}
         </>
     )
 }
